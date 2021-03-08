@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" onMouseClicked="#close" prefHeight="648.0" prefWidth="1009.0" style="-fx-background-color: linear-gradient(to right top, #051937, #004d7a, #008793, #00bf72, #a8eb12);;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.cours.gui.GestionDesCoursController">
+   <children>
+      <Label layoutX="35.0" layoutY="116.0" text="Numero de cours" textFill="#171515">
+         <font>
+            <Font name="System Italic" size="18.0" />
+         </font>
+      </Label>
+      <TextField fx:id="tnumc" layoutX="28.0" layoutY="147.0" prefHeight="31.0" prefWidth="139.0" style="-fx-background-radius: 1em;" />
+      <TextField fx:id="tnumr" layoutX="28.0" layoutY="216.0" prefHeight="31.0" prefWidth="139.0" style="-fx-background-radius: 1em;" />
+      <TextField fx:id="tnomc" layoutX="28.0" layoutY="284.0" prefHeight="31.0" prefWidth="139.0" style="-fx-background-radius: 1em;" />
+      <TextField fx:id="tnomco" layoutX="28.0" layoutY="353.0" prefHeight="31.0" prefWidth="139.0" style="-fx-background-radius: 1em;" />
+      <Label layoutX="36.0" layoutY="184.0" prefHeight="21.0" prefWidth="157.0" text="Numero de reservationl" textFill="#171515">
+         <font>
+            <Font name="System Italic" size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="37.0" layoutY="256.0" text="Nom de cours" textFill="#171515">
+         <font>
+            <Font name="System Italic" size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="37.0" layoutY="322.0" text="Nom de coach" textFill="#171515">
+         <font>
+            <Font name="System Italic" size="18.0" />
+         </font>
+      </Label>
+      <ComboBox fx:id="tcombo" layoutX="29.0" layoutY="421.0" prefHeight="31.0" prefWidth="139.0" promptText="Type" style="-fx-background-radius: 1em;" />
+      <TableView fx:id="table_cours" layoutX="263.0" layoutY="86.0" onMouseClicked="#getSelected" prefHeight="425.0" prefWidth="689.0">
+         <columns>
+            <TableColumn fx:id="ftnumcours" prefWidth="129.0" text="Numero de cours" />
+            <TableColumn fx:id="ftnumreservation" prefWidth="175.0" text="Numero de reservation" />
+            <TableColumn fx:id="ftnomcours" prefWidth="135.0" text="Nom de cours" />
+            <TableColumn fx:id="ftnomcoach" prefWidth="136.0" text="Nom de coach" />
+            <TableColumn fx:id="fttype" prefWidth="111.0" text="Type" />
+         </columns>
+      </TableView>
+      <Button fx:id="ajouter" layoutX="122.0" layoutY="486.0" mnemonicParsing="false" onAction="#ajouterCours" prefHeight="20.0" prefWidth="81.0" style="-fx-background-color: orange; -fx-background-radius: 1em;" text="Ajouter" textFill="#171515">
+         <font>
+            <Font name="System Italic" size="18.0" />
+         </font>
+      </Button>
+      <Button fx:id="supprimer" layoutX="818.0" layoutY="539.0" mnemonicParsing="false" onAction="#supprimercours" prefHeight="39.0" prefWidth="134.0" style="-fx-background-color: orange; -fx-background-radius: 1em;" text="Supprimer" textFill="#171515">
+         <font>
+            <Font name="System Italic" size="18.0" />
+         </font>
+      </Button>
+      <Button fx:id="modifier" layoutX="659.0" layoutY="539.0" mnemonicParsing="false" onAction="#modifiercours" prefHeight="31.0" prefWidth="116.0" style="-fx-background-color: orange; -fx-background-radius: 1em;" text="Modifier" textFill="#171515">
+         <font>
+            <Font name="System Italic" size="18.0" />
+         </font>
+      </Button>
+      <TextField fx:id="trecherher" layoutX="774.0" layoutY="33.0" onAction="#rechercher" prefHeight="31.0" prefWidth="178.0" style="-fx-background-color: white; -fx-background-radius: 1em;">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </TextField>
+      <Label layoutX="659.0" layoutY="38.0" text="Rechercher " textFill="#171515">
+         <font>
+            <Font name="System Italic" size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="37.0" layoutY="390.0" text="Type" textFill="#171515">
+         <font>
+            <Font name="System Italic" size="18.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="27.0" fitWidth="19.0" layoutX="825.0" layoutY="545.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../../../Jardin00007%202/src/Image/seo-social-web-network-internet_262_icon-icons.com_61518.png" />
+         </image>
+      </ImageView>
+      <HBox alignment="CENTER" layoutX="627.0" layoutY="45.71428680419922" />
+      <HBox alignment="CENTER" layoutX="621.0" layoutY="39.0" />
+      <HBox alignment="TOP_CENTER" layoutX="964.0" layoutY="7.714285850524902" />
+      <FontAwesomeIconView fill="#051937" glyphName="CLOSE" layoutX="964.0" layoutY="33.0" onMouseClicked="#CLOSE" size="30" />
+   </children>
+</AnchorPane>
