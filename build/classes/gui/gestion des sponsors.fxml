@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="422.0" prefWidth="638.0" style="-fx-background-color: linear-gradient(to right top, #051937, #004d7a, #008793, #00bf72, #a8eb12);" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.GestionDesSponsorsController">
+   <children>
+      <Label layoutX="46.0" layoutY="140.0" text="Société" textFill="#fcfcfc" />
+      <Label layoutX="46.0" layoutY="192.0" text="Budget" textFill="#fcf3f3" />
+      <Label layoutX="28.0" layoutY="249.0" text="Num téléphone" textFill="WHITE" />
+      <TextField fx:id="ftsociete" layoutX="126.0" layoutY="136.0" />
+      <TextField fx:id="ftbudget" layoutX="126.0" layoutY="188.0" />
+      <TextField fx:id="ftnum" layoutX="126.0" layoutY="245.0" />
+      <Label layoutX="234.0" layoutY="26.0" text="Gestion des sponsors" textFill="#fcfcfc">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <TableView fx:id="table_sponsors" layoutX="347.0" layoutY="121.0" prefHeight="200.0" prefWidth="264.0">
+        <columns>
+            <TableColumn fx:id="fnum" prefWidth="75.0" text="Num téléphone" />
+          <TableColumn fx:id="fbudget" prefWidth="75.0" text="Budget" />
+          <TableColumn fx:id="fsociete" prefWidth="75.0" text="Société" />
+        </columns>
+      </TableView>
+      <Button fx:id="ajouter" layoutX="162.0" layoutY="321.0" mnemonicParsing="false" onAction="#ajouterS" text="Ajouter" />
+      <Button fx:id="supprimer" layoutX="391.0" layoutY="346.0" mnemonicParsing="false" onAction="#supprimerS" text="Supprimer" />
+      <Button fx:id="modifier" layoutX="487.0" layoutY="346.0" mnemonicParsing="false" onAction="#modifierS" text="Modifier" />
+      <TextField fx:id="rechercher" layoutX="347.0" layoutY="71.0" prefHeight="25.0" prefWidth="137.0" />
+      <Button fx:id="btnvalider" layoutX="492.0" layoutY="71.0" mnemonicParsing="false" onAction="#recherchetyp" text="Valider" />
+      <Button fx:id="btnactualiser" layoutX="559.0" layoutY="71.0" mnemonicParsing="false" onAction="#AfficherSponsor" text="Actualiser" />
+      <Button fx:id="pdff" layoutX="567.0" layoutY="346.0" mnemonicParsing="false" onAction="#BPDF" text="PDF" />
+   </children>
+</AnchorPane>
