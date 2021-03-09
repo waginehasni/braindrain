@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.gererreclamation.GererReclamationController">
+   <children>
+      <Label layoutX="14.0" layoutY="28.0" text="ID" />
+      <Label layoutX="14.0" layoutY="61.0" text="IDUser" />
+      <Label layoutX="13.0" layoutY="97.0" text="Date Réclamation" />
+      <Label layoutX="16.0" layoutY="133.0" text="Etat" />
+      <Label layoutX="24.0" layoutY="174.0" text="Sujet" />
+      <Label layoutX="20.0" layoutY="213.0" text="Description" />
+      <Label layoutX="14.0" layoutY="386.0" text="Reponse" />
+      <TextField fx:id="tfId" layoutX="120.0" layoutY="24.0" />
+      <TextField fx:id="tfIdUser" layoutX="120.0" layoutY="57.0" />
+      <DatePicker fx:id="dpReclamation" layoutX="113.0" layoutY="93.0" />
+      <TextField fx:id="tfEtat" layoutX="120.0" layoutY="129.0" />
+      <TextField fx:id="tfSujet" layoutX="120.0" layoutY="170.0" />
+      <TextArea fx:id="taDescription" layoutX="113.0" layoutY="200.0" prefHeight="177.0" prefWidth="200.0" />
+      <TextArea fx:id="taReponse" layoutX="113.0" layoutY="386.0" prefHeight="115.0" prefWidth="200.0" />
+      <Button layoutX="166.0" layoutY="525.0" mnemonicParsing="false" onAction="#repondreReclamation" text="Répondre" />
+      <TableView fx:id="tableReclamation" layoutX="400.0" layoutY="74.0" prefHeight="289.0" prefWidth="381.0">
+        <columns>
+          <TableColumn fx:id="colId" prefWidth="57.0" text="ID" />
+          <TableColumn fx:id="colTitre" prefWidth="133.0" text="Titre" />
+            <TableColumn fx:id="colDescription" minWidth="0.0" prefWidth="190.0" text="Description" />
+        </columns>
+      </TableView>
+      <TextField fx:id="tfChercher" layoutX="400.0" layoutY="391.0" prefHeight="25.0" prefWidth="224.0" />
+      <Button layoutX="634.0" layoutY="391.0" mnemonicParsing="false" onAction="#chercher" prefHeight="25.0" prefWidth="116.0" text="Chercher" />
+   </children>
+</AnchorPane>
