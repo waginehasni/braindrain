@@ -52,6 +52,7 @@ public class AjoutCoursFXMain extends Application {
 					primaryStage.setY(event.getScreenY() - yOffset);
 				}
 			});
+                        new animatefx.animation.BounceInRight(root).play();
         
         
         } catch (IOException e) {
@@ -64,4 +65,5 @@ public class AjoutCoursFXMain extends Application {
       public static void main(String[] args) {
         launch(args);
     
+}
 }

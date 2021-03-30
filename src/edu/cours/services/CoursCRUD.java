@@ -31,7 +31,7 @@ public class CoursCRUD {
 
    
     public void ajouterCours(Cours c){
-        String requete="INSERT INTO Cours (numCours,numReservation,nomCours,nomCoach,type)" + "VALUES (?,?,?,?,?)";
+        String requete="INSERT INTO Cours (numCours,numReservation,nomCours,nomCoach,type,prix)" + "VALUES (?,?,?,?,?,?)";
     
         try {
           PreparedStatement pst =   MyConnection.getInstance().getConnection().prepareStatement(requete);            
@@ -44,11 +44,12 @@ public class CoursCRUD {
             pst.setString(4, c.getNomCoach());
              
             pst.setString(5 , c.getType());
+            pst.setInt(6 , c.getPrix());
             
-            pst.executeUpdate();
+           
             System.out.println("Cours ajouté");
         
-        
+           pst.executeUpdate();
         
         } catch (SQLException ex) {
             Logger.getLogger(CoursCRUD.class.getName()).log(Level.SEVERE, null, ex);  
@@ -68,8 +69,8 @@ public class CoursCRUD {
                         rs.getString(3),
                         rs.getString(4),
                        
-                        rs.getString(5)
-
+                        rs.getString(5),
+                        rs.getInt(6)
                 ));
                            
             }
@@ -96,6 +97,29 @@ public class CoursCRUD {
                 r.setNomCours(rs.getString(3));
                 r.setNomCoach(rs.getString(4));
                 r.setType(rs.getString(5));
+                r.setPrix(rs.getInt(6));
+             
+                CoursList.add(r);
+            }
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        }
+        return CoursList;
+    }  
+        public List<Cours> listCoursbynumc1() {
+        List<Cours> CoursList = new ArrayList<>();
+        try {
+            String requete = "select * from cours";
+          
+            PreparedStatement ab =   MyConnection.getInstance().getConnection().prepareStatement(requete);
+            ResultSet rs = ab.executeQuery(requete);
+            while(rs.next()){
+                Cours r = new Cours();
+                
+                r.setNomCours(rs.getString(3));
+                r.setNomCoach(rs.getString(4));
+                r.setType(rs.getString(5));
+                r.setPrix(rs.getInt(6));
              
                 CoursList.add(r);
             }
@@ -118,7 +142,7 @@ public class CoursCRUD {
         try {
             String requete = "UPDATE cours SET numCours='"+e.getNumCours()
                     + "',numReservation='"+e.getNumReservation()+ "',nomCours='"+e.getNomCours()
-                    +"',nomCoach='"+e.getNomCoach()+ "',type='"+e.getType()
+                    +"',nomCoach='"+e.getNomCoach()+ "',type='"+e.getType()+ "',prix='"+e.getPrix()
                     + "' WHERE numCours=" + e.getNumCours();
              PreparedStatement pst =   MyConnection.getInstance().getConnection().prepareStatement(requete);              
             int rowsUpdated = pst.executeUpdate(requete);
@@ -176,7 +200,7 @@ public class CoursCRUD {
           Cours com = null;
          if (res.next()) {
  
-              com = new Cours(res.getInt(1),res.getInt(2),res.getString(3),  res.getString(4), res.getString(5));
+              com = new Cours(res.getInt(1),res.getInt(2),res.getString(3),  res.getString(4), res.getString(5),res.getInt(6));
 
               listCours.add(com);
             
@@ -204,7 +228,7 @@ public class CoursCRUD {
             ResultSet res = pst.executeQuery(requete);
           Cours re=null;
             while(res.next()){
-                re = new Cours(res.getInt(1),res.getInt(2),res.getString(3),res.getString(4),res.getString(5));
+                re = new Cours(res.getInt(1),res.getInt(2),res.getString(3),res.getString(4),res.getString(5),res.getInt(6));
                 listCours.add(re);
             }
              Collections.sort(listCours, NouCoursComparator);

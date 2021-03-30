@@ -21,10 +21,10 @@ import java.sql.SQLException;
 public class MainClass {
     public static void main(String[] args)  {
         
-         CoursCRUD ccd = new CoursCRUD();
-        Cours c2 = new Cours (6,1,"hand","hamza","presentiel");
-          ccd.listCoursbynumc().forEach(e->System.out.println(e));
-        //ccd.ajouterCours(c2);
+       //  CoursCRUD ccd = new CoursCRUD();
+      // Cours c2 = new Cours (852,11,"hand","hamza","prive",77);
+        //  ccd.getAll().forEach(e->System.out.println(e));
+      //  ccd.ajouterCours(c2);
          //ccd.supprimerCours(33);
         // ccd.supprimer(c2);
          // ccd.modifiercours(c2); 
@@ -34,11 +34,14 @@ public class MainClass {
 
       
       /******************************/
-    ReservationCRUD scd = new ReservationCRUD();
-     String str ="2021-07-30";
-    Date date1 = Date.valueOf(str);
+   ReservationCRUD scd = new ReservationCRUD();
+    String str ="2021-07-30";
+   Date date1 = Date.valueOf(str);
      
     Reservation s1 = new Reservation(99,888,"football",date1,"15h","16h");
+    
+    
+            
        //scd.ajouterReservation(s1);
         //scd.supprimerSalle(27);
        //scd.supprimer(s1);
@@ -46,9 +49,9 @@ public class MainClass {
       
        //scd.modifierReservation( s1);
      
-     scd.listReservationbynum().forEach(e->{System.out.println(e);});
+     scd.listReservationbynum1().forEach(e->{System.out.println(e);});
      // scd.TrouveravecSpecialite("tenniss").forEach(e->{System.out.println(e);});
-     // scd.trierReservationparNumeroSalle().forEach(e->{System.out.println(e);}); 
+     // scd.trierreservationdate().forEach(e->{System.out.println(e);}); 
 
        
  }

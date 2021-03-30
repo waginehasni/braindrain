@@ -82,7 +82,7 @@ public class MyConnection {
             ResultSet rs = ps.executeQuery();
             
             while (rs.next()){   
-                list.add(new Cours(rs.getInt("numCours") ,rs.getInt("numReservation"), rs.getString("nomCours"), rs.getString("nomCoach"), rs.getString("type")));               
+                list.add(new Cours(rs.getInt("numCours") ,rs.getInt("numReservation"), rs.getString("nomCours"), rs.getString("nomCoach"), rs.getString("type"), rs.getInt("prix")));               
             }
         } catch (Exception e) {
         }

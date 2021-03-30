@@ -9,6 +9,7 @@ import edu.cours.entities.Cours;
 import edu.cours.entities.Reservation;
 import edu.cours.tools.MyConnection;
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -80,7 +81,28 @@ public class ReservationCRUD {
         return ReservationList;
     }
      
-       
+         public List<Reservation> listReservationbynum1() {
+        List<Reservation> ReservationList = new ArrayList<>();
+        try {
+            String requete = "select * from reservation";
+          
+            PreparedStatement ab =   MyConnection.getInstance().getConnection().prepareStatement(requete);
+            ResultSet rs = ab.executeQuery(requete);
+            while(rs.next()){
+                Reservation r = new Reservation();
+              
+                r.setNumSalles(rs.getInt(2));
+                r.setSpecialite(rs.getString(3));
+                r.setDate(rs.getDate(4));
+                r.setHorraire(rs.getString(5));
+                r.setDuree(rs.getString(6));
+                ReservationList.add(r);
+            }
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        }
+        return ReservationList;
+    }
        
        
        
@@ -202,5 +224,40 @@ public class ReservationCRUD {
  
     } 
     
+  
+    public List<Reservation> trierreservationdate() {
+         ArrayList<Reservation> listReservaion = new ArrayList<>();
+         try {
+            String req = "Select * from reservation";
+          PreparedStatement st =   MyConnection.getInstance().getConnection().prepareStatement(req);
+            ResultSet res = st.executeQuery(req);
+            Reservation re=null;
+            while(res.next()){
+                re = new Reservation(res.getInt(1),res.getInt(2),res.getString(3),res.getDate(4),res.getString(5),res.getString(6));
+                listReservaion.add(re);
+            }
+             Collections.sort(listReservaion, dateComparator);
+             Collections.reverse(listReservaion);
+             
+        } catch (SQLException ex) {
+             System.out.println(ex.getMessage());
+        }
+         return listReservaion;
+    }
     
+     public static Comparator<Reservation> dateComparator = new Comparator<Reservation>() {
+
+        @Override
+	public int compare(Reservation r1, Reservation r2) {
+            
+            
+            Date date1 = r1.getDate();
+        Date date2 = r2.getDate();
+
+
+           return date1.compareTo(date2);
+
+	  
+    }
+    }; 
 }

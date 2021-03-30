@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane id="AnchorPane" prefHeight="613.0" prefWidth="933.0" style="-fx-background-color: #f8eadc; -fx-border-color: #e08475;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.cours.gui.ClientCoursController">
+   <children>
+      <ImageView fitHeight="622.0" fitWidth="415.0" layoutX="515.0" layoutY="3.0">
+         <image>
+            <Image url="file:/C:/Users/dell/Desktop/166191857_880304782526299_8454941860697567476_n.png" />
+         </image>
+      </ImageView>
+      <FontAwesomeIconView fill="#051937" glyphName="CLOSE" layoutX="882.0" layoutY="40.0" onMouseClicked="#CLOSE" size="30" />
+      <Button fx:id="tpayer" layoutX="761.0" layoutY="589.0" mnemonicParsing="false" onAction="#payer" prefHeight="31.0" prefWidth="159.0" style="-fx-background-color: #e08475;" text="Payer cours prive" />
+      <TabPane layoutX="2.0" layoutY="4.0" prefHeight="622.0" prefWidth="511.0" style="-fx-background-color: #f8eadc;" tabClosingPolicy="UNAVAILABLE">
+        <tabs>
+          <Tab onSelectionChanged="#res" style="-fx-background-color: ;" text="Reservation">
+               <content>
+                  <TableView fx:id="table_reservation" onMouseClicked="#selection" prefHeight="456.0" prefWidth="466.0" style="-fx-background-color: #f8eadc;">
+                     <columns>
+                        <TableColumn fx:id="ftnums" minWidth="0.0" prefWidth="111.0" sortable="false" text="Numero salle" />
+                        <TableColumn fx:id="ftspecialite" prefWidth="86.0" sortable="false" text=" Specialite" />
+                        <TableColumn fx:id="ftdate" prefWidth="94.0" sortable="false" text="Date" />
+                        <TableColumn fx:id="fthorraire" prefWidth="76.0" sortable="false" text=" Horraire" />
+                        <TableColumn fx:id="ftduree" prefWidth="64.0" text="Duree" />
+                     </columns>
+                  </TableView>
+               </content>
+            </Tab>
+          <Tab onSelectionChanged="#cou" style="-fx-background-color: ;" text="Cours">
+               <content>
+                  <TableView fx:id="table_cours" prefHeight="512.0" prefWidth="511.0" style="-fx-background-color: #f8eadc#f8eadc;">
+                     <columns>
+                        <TableColumn fx:id="ftnomcours" prefWidth="135.0" sortable="false" text="Nom de cours" />
+                        <TableColumn fx:id="ftnomcoach" prefWidth="136.0" sortable="false" text="Nom de coach" />
+                        <TableColumn fx:id="fttype" prefWidth="93.0" sortable="false" text="Type" />
+                        <TableColumn fx:id="ftprix" prefWidth="129.0" sortable="false" text="Prix" />
+                     </columns>
+                  </TableView>
+               </content>
+            </Tab>
+        </tabs>
+      </TabPane>
+      <Text fill="#393535" layoutX="524.0" layoutY="557.0" strokeType="OUTSIDE" strokeWidth="0.0" text="veuillez choisir 3 cours privés de meme type avant de  payer " />
+   </children>
+</AnchorPane>

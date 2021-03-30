@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="366.0" prefWidth="518.0" style="-fx-background-color: linear-gradient(to right top, #051937, #004d7a, #008793, #00bf72, #a8eb12);;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.cours.gui.MenuController">
+   <children>
+      <Button fx:id="cours" layoutX="323.0" layoutY="241.0" mnemonicParsing="false" onAction="#Gcours" prefHeight="49.0" prefWidth="152.0" style="-fx-background-color: orange; -fx-background-radius: 1em;" text="Gestion Cours " />
+      <Button fx:id="reservation" layoutX="52.0" layoutY="240.0" mnemonicParsing="false" onAction="#Greservation" prefHeight="49.0" prefWidth="152.0" style="-fx-background-color: orange; -fx-background-radius: 1em;" text="Gestion Reservation" />
+      <Label layoutX="147.0" layoutY="60.0" text="Sportify" textFill="#f8f6f6">
+         <font>
+            <Font name="System Italic" size="64.0" />
+         </font>
+      </Label>
+      <FontAwesomeIconView fill="#051937" glyphName="CLOSE" layoutX="472.0" layoutY="40.0" onMouseClicked="#CLOSE" size="30" />
+      <FontAwesomeIconView fill="#ebe3e3" glyphName="CHILD" layoutX="226.0" layoutY="282.0" size="110" wrappingWidth="50.0" />
+      <FontAwesomeIconView fill="#f8f6f6" glyphName="TROPHY" layoutX="280.0" layoutY="213.0" size="35" text="" />
+   </children>
+</AnchorPane>

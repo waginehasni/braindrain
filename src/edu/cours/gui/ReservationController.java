@@ -8,8 +8,10 @@ package edu.cours.gui;
 import edu.cours.entities.Reservation;
 import edu.cours.services.ReservationCRUD;
 import java.io.IOException;
+
 import java.net.URL;
 import java.sql.Date;
+import java.util.Properties;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -23,6 +25,12 @@ import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
+import javax.mail.MessagingException;
+import javax.mail.PasswordAuthentication;
+import javax.mail.Session;
+import javax.mail.Transport;
+import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MimeMessage;
 
 /**
  * FXML Controller class
@@ -77,6 +85,7 @@ public class ReservationController implements Initializable {
         stage.setTitle("ajout reservaation");
         stage.setScene(new Scene(root1));
         stage.show();
+         
     }
     
       @FXML
@@ -85,5 +94,7 @@ public class ReservationController implements Initializable {
         stage.close();
     }
 
+    
+    
     
 }

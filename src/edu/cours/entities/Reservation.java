@@ -28,7 +28,14 @@ public class Reservation {
     
     
 }
-    
+     public Reservation( int numSalles, String specialite, Date date, String horraire, String duree) {
+      
+        this.numSalles = numSalles;
+        this.specialite = specialite;
+        this.date = date;
+        this.horraire = horraire;
+        this.duree = duree;
+    }
   
 
     public Reservation(int numReservation, int numSalles, String specialite, Date date, String horraire, String duree) {

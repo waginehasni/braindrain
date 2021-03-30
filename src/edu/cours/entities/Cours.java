@@ -16,35 +16,49 @@ public class Cours {
     private String  nomCours;
     private String  nomCoach;
     private String  type;
+    private int prix;
 
     public Cours() {
     }
 
 
 
-    public Cours(int numCours, int numReservation, String nomCours, String nomCoach, String type ) {
+    public Cours(int numCours, int numReservation, String nomCours, String nomCoach, String type,int prix ) {
         this.numCours = numCours;
         this.numReservation = numReservation;
         this.nomCours = nomCours;
         this.nomCoach = nomCoach;
         this.type = type;
+        this.prix = prix;
+         
+    }
+    public Cours( String nomCours, String nomCoach, String type,int prix ) {
+      
+        this.nomCours = nomCours;
+        this.nomCoach = nomCoach;
+        this.type = type;
+        this.prix = prix;
          
     }
 
-    public Cours(int numReservation, String nomCours, String nomCoach, String type) {
+    public Cours(int numReservation, String nomCours, String nomCoach, String type,int prix) {
         this.numReservation = numReservation;
         this.nomCours = nomCours;
         this.nomCoach = nomCoach;
         this.type = type;
+         this.prix = prix;
+    }
+
+   
+  
+
+    public void setNumCours(int numCours) {
+        this.numCours = numCours;
     }
 
     @Override
     public String toString() {
-        return "Cours{" + "numCours=" + numCours + ", numReservation=" + numReservation + ", nomCours=" + nomCours + ", nomCoach=" + nomCoach + ", type=" + type + '}';
-    }
-
-    public void setNumCours(int numCours) {
-        this.numCours = numCours;
+        return "Cours{" + "numCours=" + numCours + ", numReservation=" + numReservation + ", nomCours=" + nomCours + ", nomCoach=" + nomCoach + ", type=" + type + ", prix=" + prix + '}';
     }
 
     public void setNumReservation(int numReservation) {
@@ -83,4 +97,12 @@ public class Cours {
         return type;
     }
 
+
+    public void setPrix(int prix) {
+        this.prix = prix;
+    }
+
+    public int getPrix() {
+        return prix;
+    }
 }

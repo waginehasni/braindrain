@@ -7,7 +7,6 @@ package edu.cours.test;
 
 import java.io.IOException;
 import javafx.application.Application;
-import static javafx.application.Application.launch;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
@@ -24,13 +23,13 @@ import javafx.stage.StageStyle;
  *
  * @author dell
  */
-public class AjoutReservationFXMain5 extends Application {
+public class CoursPriveMain extends Application {
     
-   double xOffset, yOffset;
+  double xOffset, yOffset;
     @Override
     public void start(Stage primaryStage) {
      try {
-           FXMLLoader home = new FXMLLoader(getClass().getResource("../Gui/Ajouter Reservation.fxml"));
+           FXMLLoader home = new FXMLLoader(getClass().getResource("../Gui/Cours Prive.fxml"));
             //FXMLLoader home1 = new FXMLLoader(getClass().getResource("../Gui/modifierCours.fxml"));
 
         Parent root = home.load();
@@ -53,7 +52,7 @@ public class AjoutReservationFXMain5 extends Application {
 					primaryStage.setY(event.getScreenY() - yOffset);
 				}
 			});
-        new animatefx.animation.BounceInRight(root).play();
+        
         
         } catch (IOException e) {
               System.out.println(e.getMessage());
@@ -61,10 +60,8 @@ public class AjoutReservationFXMain5 extends Application {
  
 
     }
-        
-      public static void main(String[] args) {
+    public static void main(String[] args) {
         launch(args);
-    
-}
+    }
     
 }
