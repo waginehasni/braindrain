@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="500.0" prefWidth="750.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.ReclamationController">
+   <children>
+      <VBox layoutX="48.0" layoutY="50.0" prefHeight="140.0" prefWidth="80.0" spacing="15.0">
+         <children>
+            <Label text="ID">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label text="Titre">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label text="Description">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+         </children>
+      </VBox>
+      <VBox layoutX="128.0" layoutY="50.0" prefHeight="268.0" prefWidth="153.0" spacing="10.0">
+         <children>
+            <TextField fx:id="tfId" />
+            <TextField fx:id="tfTitre" />
+            <TextArea fx:id="taDescription" prefHeight="199.0" prefWidth="100.0" />
+         </children></VBox>
+      <TableView fx:id="tvReclamations" layoutX="312.0" layoutY="50.0" prefHeight="200.0" prefWidth="397.0">
+        <columns>
+          <TableColumn fx:id="cold" prefWidth="44.0" text="ID" />
+          <TableColumn fx:id="colTitre" prefWidth="106.0" text="Titre" />
+            <TableColumn fx:id="colDescription" prefWidth="246.0" text="Description" />
+        </columns>
+      </TableView>
+      <Button fx:id="btnAjouter" layoutX="55.0" layoutY="362.0" mnemonicParsing="false" onAction="#ajouterReclamation" text="Ajouter" />
+      <Button fx:id="btnModifier" layoutX="135.0" layoutY="362.0" mnemonicParsing="false" onAction="#modifierReclamation" text="Modifier" />
+      <Button fx:id="btnSupprimer" layoutX="209.0" layoutY="362.0" mnemonicParsing="false" onAction="#supprimerReclamation" text="Supprimer" />
+      <VBox fx:id="vboxImage" layoutX="463.0" layoutY="330.0" prefHeight="157.0" prefWidth="238.0" />
+   </children>
+</AnchorPane>
