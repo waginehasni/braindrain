@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXTextArea?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane id="AnchorPane" prefHeight="774.0" prefWidth="838.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.cours.gui.CoursPriveController">
+   <children>
+      <ImageView fitHeight="187.0" fitWidth="219.0" layoutX="490.0" layoutY="76.0">
+         <image>
+            <Image url="file:/C:/Users/dell/Desktop/esprit3/Salles/img/equitation.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="187.0" fitWidth="228.0" layoutX="508.0" layoutY="431.0">
+         <image>
+            <Image url="file:/C:/Users/dell/Desktop/esprit3/Salles/img/yoga.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="177.0" fitWidth="219.0" layoutX="72.0" layoutY="87.0">
+         <image>
+            <Image url="file:/C:/Users/dell/Desktop/esprit3/Salles/img/tennis.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="187.0" fitWidth="252.0" layoutX="40.0" layoutY="433.0">
+         <image>
+            <Image url="file:/C:/Users/dell/Desktop/esprit3/Salles/img/natation.jpg" />
+         </image>
+      </ImageView>
+      <JFXTextArea layoutX="47.0" layoutY="276.0" prefHeight="127.0" prefWidth="196.0" text="  Cours Tennis privé &#10;  lundi le 29/03/2021 à 16h&#10;  durée:90min &#10;   prix:45dt&#10;" />
+      <JFXTextArea layoutX="493.0" layoutY="269.0" prefHeight="136.0" prefWidth="211.0" text=" Cours Equitation privé &#10;  Vendredi le 2/04/2021 à 16h&#10;  durée:60min &#10;  prix:25dt&#10;" />
+      <JFXTextArea layoutX="38.0" layoutY="626.0" prefHeight="127.0" prefWidth="219.0" text="Cours Natation privé &#10; Mardi le 30/03/2021 à 11h&#10;  duréé:60min &#10;  prix:20dt&#10;" />
+      <JFXTextArea layoutX="500.0" layoutY="626.0" prefHeight="136.0" prefWidth="245.0" text="  Cours Yoga privé &#10;  Vendredi le 2/04/2021 à 16h&#10;  durée:60min &#10;  prix:25dt" />
+      <Button fx:id="tp" layoutX="260.0" layoutY="372.0" mnemonicParsing="false" onAction="#payer1" text="payer" />
+      <Button fx:id="tpp" layoutX="710.0" layoutY="372.0" mnemonicParsing="false" onAction="#payer2" text="payer" />
+      <Button fx:id="tppp" layoutX="268.0" layoutY="721.0" mnemonicParsing="false" onAction="#payer3" text="payer" />
+      <Button fx:id="tpppp" layoutX="748.0" layoutY="725.0" mnemonicParsing="false" onAction="#payer4" text="payer" />
+      <FontAwesomeIconView fill="#96e491" glyphName="CLOSE" layoutX="781.0" layoutY="46.0" onMouseClicked="#CLOSE" size="30" />
+   </children>
+</AnchorPane>
