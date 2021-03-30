@@ -2,6 +2,19 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group/>
+        <group>
+            <file>file:/C:/Users/infoevo/Desktop/pidev/pidev/src/com/pidev/gui/RatingadminController.java</file>
+            <file>file:/C:/Users/infoevo/Desktop/pidev/pidev/src/com/pidev/gui/EvenementController.java</file>
+            <file>file:/C:/Users/infoevo/Desktop/pidev/pidev/src/com/pidev/gui/ListeeventController.java</file>
+            <file>file:/C:/Users/infoevo/Desktop/pidev/pidev/src/com/pidev/gui/listeevent.fxml</file>
+            <file>file:/C:/Users/infoevo/Desktop/pidev/pidev/src/com/pidev/gui/UtilisateurController.java</file>
+            <file>file:/C:/Users/infoevo/Desktop/pidev/pidev/src/com/pidev/models/rating.java</file>
+            <file>file:/C:/Users/infoevo/Desktop/pidev/pidev/src/com/pidev/models/evenement.java</file>
+            <file>file:/C:/Users/infoevo/Desktop/pidev/pidev/src/com/pidev/services/Service_Evenement.java</file>
+            <file>file:/C:/Users/infoevo/Desktop/pidev/pidev/src/com/pidev/services/ServiceRating.java</file>
+            <file>file:/C:/Users/infoevo/Desktop/pidev/pidev/src/com/pidev/gui/ratingadmin.fxml</file>
+            <file>file:/C:/Users/infoevo/Desktop/pidev/pidev/src/com/pidev/gui/MenuController.java</file>
+            <file>file:/C:/Users/infoevo/Desktop/pidev/pidev/src/com/pidev/tests/mainGUI.java</file>
+        </group>
     </open-files>
 </project-private>
