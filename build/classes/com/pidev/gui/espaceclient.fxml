@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import de.jensd.fx.glyphs.materialdesignicons.MaterialDesignIconView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.171">
+   <children>
+      <VBox layoutX="-1.0" prefHeight="400.0" prefWidth="153.0" style="-fx-background-color: #e08475;">
+         <children>
+            <JFXButton onAction="#event" prefHeight="87.0" prefWidth="153.0" text="Evenements" textFill="#f8f3f3" />
+            <JFXButton onAction="#clientcours" prefHeight="68.0" prefWidth="153.0" text="Cours" textFill="#f8f3f3" />
+            <JFXButton onAction="#clientproduit" prefHeight="78.0" prefWidth="153.0" text="Produits" textFill="#f8f3f3" />
+            <JFXButton onAction="#clientabonnement" prefHeight="72.0" prefWidth="153.0" text="Abonnements / Reclamation" textFill="#f8f3f3">
+               <font>
+                  <Font size="10.0" />
+               </font>
+            </JFXButton>
+            <JFXButton onAction="#clientoffre" prefHeight="92.0" prefWidth="153.0" text="Offres" textFill="#f8f3f3" />
+         </children>
+      </VBox>
+      <ImageView fitHeight="400.0" fitWidth="450.0" layoutX="151.0">
+         <image>
+            <Image url="@../../../../../../Shutterstock_Lisa_Kolbasa.png" />
+         </image>
+      </ImageView>
+      <Text layoutX="485.0" layoutY="21.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Deconnexion" />
+      <MaterialDesignIconView fill="#e08475" glyphName="ACCOUNT_REMOVE" layoutX="558.0" layoutY="25.0" onMouseClicked="#deconnecter" size="25" wrappingWidth="42.0" />
+   </children>
+</AnchorPane>

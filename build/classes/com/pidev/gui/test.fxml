@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import de.jensd.fx.glyphs.materialdesignicons.MaterialDesignIconView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.171">
+   <children>
+      <VBox layoutX="-2.0" prefHeight="400.0" prefWidth="131.0" style="-fx-background-color: #e08475;">
+         <children>
+            <JFXButton fx:id="btnespaceclient" onAction="#client" prefHeight="212.0" prefWidth="131.0" text="Espace Client" textFill="#f5f2f2">
+               <font>
+                  <Font name="Arial Narrow" size="18.0" />
+               </font>
+            </JFXButton>
+            <JFXButton fx:id="btnespaceadmin" onAction="#admin" prefHeight="185.0" prefWidth="131.0" text="Espace Admin " textFill="#fff9f9">
+               <font>
+                  <Font name="Arial Narrow" size="18.0" />
+               </font>
+            </JFXButton>
+         </children>
+      </VBox>
+      <ImageView fitHeight="400.0" fitWidth="472.0" layoutX="128.0" layoutY="-1.0">
+         <image>
+            <Image url="@../../../../../../Logo%20yoga%20illustré%20pastel,%20marron%20et%20orange.png" />
+         </image>
+      </ImageView>
+      <Text fill="#6b5b4e" fontSmoothingType="LCD" layoutX="208.0" layoutY="313.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Where champions keep playing until they get it right.">
+         <font>
+            <Font name="Arial Narrow" size="16.0" />
+         </font>
+      </Text>
+      <JFXButton fx:id="btnus" layoutX="528.0" layoutY="362.0" onAction="#us" style="-fx-background-color: #e08475;" text="About US" textFill="WHITE" />
+      <MaterialDesignIconView glyphName="PLAY" layoutX="547.0" layoutY="38.0" onMouseClicked="#video" size="35" />
+      <MaterialDesignIconView glyphName="MUSIC_NOTE" layoutX="507.0" layoutY="36.0" onMouseClicked="#music" size="30" />
+   </children>
+</AnchorPane>
