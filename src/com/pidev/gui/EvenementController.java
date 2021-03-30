@@ -7,9 +7,12 @@ package com.pidev.gui;
 
 import com.pidev.models.evenement;
 import com.pidev.services.Service_Evenement;
+import java.awt.Desktop;
+import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.Date;
+import java.time.LocalDate;
 import java.util.List;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
@@ -27,9 +30,11 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import javax.swing.JOptionPane;
+import static jdk.nashorn.internal.objects.NativeRegExp.test;
 
 /**
  * FXML Controller class
@@ -71,6 +76,14 @@ public class EvenementController implements Initializable {
     @FXML
     private DatePicker tfdatefin;
     private Stage primaryStage;
+    @FXML
+    private Button btretour;
+    @FXML
+    private Button btnvideo;
+    @FXML
+    private TextField tfnom;
+    @FXML
+    private TableColumn<evenement, String> colnom;
 
     /**
      * Initializes the controller class.
@@ -87,6 +100,7 @@ public class EvenementController implements Initializable {
         coldatedebut.setCellValueFactory(new PropertyValueFactory<>("date_debut"));
         coldatefin.setCellValueFactory(new PropertyValueFactory<>("date_fin"));
         colspecialite.setCellValueFactory(new PropertyValueFactory<>("specialite"));
+        colnom.setCellValueFactory(new PropertyValueFactory<>("nom"));
 
         Service_Evenement rt = new Service_Evenement();
         List old = rt.listeventid();
@@ -98,7 +112,7 @@ public class EvenementController implements Initializable {
     @FXML
     private void ajouter(ActionEvent event) {
          Service_Evenement rt = new Service_Evenement();
-        rt.Ajouterevent(new evenement(Integer.parseInt(tfnumsalle.getText()), tfnomoffre.getText(), Date.valueOf(tfdatedebut.getValue()), Date.valueOf(tfdatefin.getValue()), tfspecialite.getText()));
+        rt.Ajouterevent(new evenement(Integer.parseInt(tfnumsalle.getText()), tfnomoffre.getText(), Date.valueOf(tfdatedebut.getValue()), Date.valueOf(tfdatefin.getValue()), tfspecialite.getText(),tfnom.getText()));
         JOptionPane.showMessageDialog(null, "evenement ajouté");
         loadDate();
     }
@@ -107,7 +121,7 @@ public class EvenementController implements Initializable {
     private void modifier(ActionEvent event) {
         evenement test = (evenement) tab.getSelectionModel().getSelectedItem();
         Service_Evenement rt = new Service_Evenement();
-        rt.ModiferEvenement(test.getId_evenement(),new evenement(Integer.parseInt(tfnumsalle.getText()), tfnomoffre.getText(), Date.valueOf(tfdatedebut.getValue()), Date.valueOf(tfdatefin.getValue()), tfspecialite.getText()));
+        rt.ModiferEvenement(test.getId_evenement(),new evenement(Integer.parseInt(tfnumsalle.getText()), tfnomoffre.getText(), Date.valueOf(tfdatedebut.getValue()), Date.valueOf(tfdatefin.getValue()), tfspecialite.getText(),tfnom.getText()));
         JOptionPane.showMessageDialog(null, "evenement modifié");
         loadDate();
     }
@@ -137,11 +151,40 @@ public class EvenementController implements Initializable {
         coldatedebut.setCellValueFactory(new PropertyValueFactory<>("date_debut"));
         coldatefin.setCellValueFactory(new PropertyValueFactory<>("date_fin"));
         colspecialite.setCellValueFactory(new PropertyValueFactory<>("specialite"));
+        colnom.setCellValueFactory(new PropertyValueFactory<>("nom"));
         Service_Evenement rt = new Service_Evenement();
         List old = rt.trierevenementDateDebut();
         recList.addAll(old);
         tab.setItems(recList);
         tab.refresh();
+    }
+
+    
+
+    @FXML
+    private void getSelected(MouseEvent event) {
+            evenement test = (evenement) tab.getSelectionModel().getSelectedItem();
+
+         int index = tab.getSelectionModel().getSelectedIndex();
+    if (index <= -1){
+    
+        return;
+    }
+    tfnumsalle.setText(colnumsalle.getCellData(index).toString());
+    tfnomoffre.setText(colnomoffre.getCellData(index));
+    String d1= test.getDate_debut().toString();
+    LocalDate ss = LocalDate.parse(d1);
+    tfdatedebut.setValue(ss);
+    String d2= test.getDate_debut().toString();
+    LocalDate aa = LocalDate.parse(d2);
+    tfdatefin.setValue(aa);
+    tfspecialite.setText(colspecialite.getCellData(index));
+    tfnom.setText(colnom.getCellData(index));
+    }
+
+    @FXML
+    private void video(ActionEvent event) throws IOException {
+        Desktop.getDesktop().open(new File("wijou.wmv"));
     }
     
     

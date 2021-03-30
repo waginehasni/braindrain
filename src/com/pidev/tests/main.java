@@ -26,7 +26,10 @@ public class main {
     public static void main(String[] args) {
         
    
-    
+    ServiceRating r = new ServiceRating();
+   //r.Ajouterrating(new rating ("test","test"));
+   //r.Supprimerrating("test");
+   r.getAllrating().forEach(e->System.out.println(e));
     //ServiceUser suser = new ServiceUser();
    //suser.AjouterUser(new fos_user( "firas", "wagine.hasni@esprit.tn", "1233", "admin"));
         //System.out.println(suser.listuserid());
@@ -37,7 +40,7 @@ public class main {
            // suser.getAllUser().forEach(System.out::println);
             //System.out.println("user id "+ suser.AfficherUserId(17));
             
-            //suser.Login("wajine", "125");
+            //suser.Login("wagine", "123");
             
             //  suser.registerUser(new fos_user("wajjsin", "llslsl@lld.com", "1233", "123"));
             //suser.TrierParId().forEach(e->{System.out.println(e);});
@@ -45,7 +48,7 @@ public class main {
 //  Date d1 = Date.valueOf(str);
 //   String str1 = "2020-04-30";
 //  Date d2 = Date.valueOf(str1);
-  Service_Evenement evenement1 = new Service_Evenement();
+  //Service_Evenement evenement1 = new Service_Evenement();
 //
 // 
 //    evenement e1  = new evenement (33,43,"football",d1,d2,"1h");
@@ -55,7 +58,7 @@ public class main {
 //evenement1.getAllEvenement().forEach(e->System.out.println(e));
 
 //evenement1.SupprimerEvenement(33);
-evenement1.trierevenementDateDebut().forEach(e->System.out.println(e));
+//evenement1.trierevenementDateDebut().forEach(e->System.out.println(e));
 
         
            

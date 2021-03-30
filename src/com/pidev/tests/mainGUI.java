@@ -31,9 +31,11 @@ public class mainGUI extends Application {
         
                  this.primaryStage = primaryStage;
         
-       //parentPage = FXMLLoader.load(getClass().getResource("/com/pidev/gui/ajouterutilisateur.fxml"));
-        //parentPage = FXMLLoader.load(getClass().getResource("/com/pidev/gui/evenement.fxml"));
-        parentPage = FXMLLoader.load(getClass().getResource("/com/pidev/gui/menu.fxml"));
+       parentPage = FXMLLoader.load(getClass().getResource("/com/pidev/gui/test.fxml"));
+       // parentPage = FXMLLoader.load(getClass().getResource("/com/pidev/gui/login.fxml"));
+       //parentPage = FXMLLoader.load(getClass().getResource("/com/pidev/gui/menu.fxml"));
+        //parentPage = FXMLLoader.load(getClass().getResource("/com/pidev/gui/Utilisateur.fxml"));
+        //Parent root = FXMLLoader.load(getClass().getResource("ajouterutilisateur.fxml"));
         Scene scene = new Scene(parentPage);
         this.primaryStage.setScene(scene);
         this.primaryStage.show();

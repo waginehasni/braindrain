@@ -41,16 +41,17 @@ public class ServiceUser {
     
 public void AjouterUser(fos_user u) {
         try {
-            String req = "INSERT INTO fos_user (username,email,password,roles) VALUES (?,?,?,?)";
+            String req = "INSERT INTO fos_user (username,email,password,roles,telephone) VALUES (?,?,?,?,?)";
 
             PreparedStatement st = cnx.prepareStatement(req);
             st.setString(1, u.getUsername());
             st.setString(2, u.getEmail());
             //st.setString(6, u.getSalt());
-            st.setString(3, u.getPassword());
+            st.setString(3, md5(u.getPassword()));
             //st.setDate(8, u.getLast_login());
             //st.setDate(10, u.getPassword_requested_at());
             st.setString(4, u.getRoles());
+            st.setString(5, u.getTelephone());
             st.executeUpdate();
             System.out.println("user ajoutée !!");
 
@@ -62,13 +63,14 @@ public void AjouterUser(fos_user u) {
     public void ModiferUser(int id, fos_user u) {
         try {
             System.out.println("-------"+u.getUsername());
-            String req = "UPDATE fos_user SET username = ?, email= ?, password=?, roles=?  " 
+            String req = "UPDATE fos_user SET username = ?, email= ?, password=?, roles=? , telephone=? " 
                     + " WHERE id = " + id + ";";
             PreparedStatement st = cnx.prepareStatement(req);
             st.setString(1, u.getUsername());
             st.setString(2, u.getEmail());
-            st.setString(3, u.getPassword()+"{"+u.getUsername()+"}");
+            st.setString(3, md5(u.getPassword())+"{"+u.getUsername()+"}");
             st.setString(4, u.getRoles());
+            st.setString(5, u.getTelephone());
            
 
             st.executeUpdate();
@@ -94,37 +96,59 @@ public void AjouterUser(fos_user u) {
             Logger.getLogger(ServiceUser.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+ public String  validerLogin(String username, String password  ) throws SQLException{
+      String k= null;
+               String requete = "select count(*) as total from fos_user where username=? and password=? ";
+           PreparedStatement st = cnx.prepareStatement(requete);
+             st.setString(1,username );
+              st.setString(2,md5(password ));
+                  
+             ResultSet rs=st.executeQuery();
+             rs.next();
+             int l1=rs.getInt("total");
+             System.out.println("nbr" +l1);
+             rs.close();
+      
+          if (l1!=1){
+              k= "utilisateur n'existe pas ";
+          }
+            else  k=  "utilisateur correct ";
+         
+         return k;
+       
+  }
 
-  public Boolean Login(String username, String password) {
-
-        try {
-            st = cnx.createStatement();
-            ResultSet rs = st.executeQuery("Select * from fos_user WHERE fos_user.`username` = '" + username + "'and  fos_user.`password` like '"+password+"%'");
-            
-            if (rs.next()) {
-                System.out.println("login success");
-                return true;
-            }
-            
-
-            st.close();
-        } catch (SQLException ex) {
-            Logger.getLogger(ServiceUser.class.getName()).log(Level.SEVERE, null, ex);
-        }
-
-        return false;
-    }
+//  public Boolean Login(String username, String password) {
+//
+//        try {
+//            st = cnx.createStatement();
+//            ResultSet rs = st.executeQuery("Select * from fos_user WHERE fos_user.`username` = '" + username + "'and  fos_user.`password` like '"+md5(password)+"%'");
+//            
+//            if (rs.next()) {
+//                System.out.println("login success");
+//                return true;
+//            }
+//            
+//
+//            st.close();
+//        } catch (SQLException ex) {
+//            Logger.getLogger(ServiceUser.class.getName()).log(Level.SEVERE, null, ex);
+//        }
+//
+//        return false;
+//    }
 
   
    public void registerUser(fos_user u) {
         try {
-            String req = "INSERT INTO fos_user (username,email,password,roles) VALUES (?,?,?,?)";
+            String req = "INSERT INTO fos_user (username,email,password,roles,telephone) VALUES (?,?,?,?,?)";
 
             PreparedStatement st = cnx.prepareStatement(req);
             st.setString(1, u.getUsername());
             st.setString(2, u.getEmail());
-            st.setString(3, u.getPassword());
+            st.setString(3, md5(u.getPassword()));
             st.setString(4, u.getRoles());
+            st.setString(5, u.getTelephone());
             st.executeUpdate();
             System.out.println("User Ajouté !!");
 
@@ -171,6 +195,7 @@ public void AjouterUser(fos_user u) {
                 a.setPassword(rs.getString(4));
                 
                 a.setRoles(rs.getString(5));
+                 a.setTelephone(rs.getString(6));
                 userList.add(a);
             }
         } catch (SQLException ex) {
@@ -193,7 +218,8 @@ public void AjouterUser(fos_user u) {
                         rs.getString("email"),
                         rs.getString("password"),
                   
-                        rs.getString("roles")
+                        rs.getString("roles"),
+                        rs.getString("telephone")
                 ));
             }
             st.close();
@@ -221,6 +247,7 @@ public void AjouterUser(fos_user u) {
                         u.setPassword(rs.getString("password"));
                      
                         u.setRoles(rs.getString("roles"));
+                        u.setTelephone(rs.getString("telephone"));
                         listu.add(u);
             }
         } catch (SQLException ex) 
@@ -238,7 +265,7 @@ public void AjouterUser(fos_user u) {
             ResultSet res = pst.executeQuery();
         fos_user com = null;
         while (res.next()) {
-            com = new fos_user(res.getInt(1),res.getString(2),res.getString(3),  res.getString(4), res.getString(5));
+            com = new fos_user(res.getInt(1),res.getString(2),res.getString(3),  res.getString(4), res.getString(5),res.getString(6));
             list.add(com);
             
         }} catch (SQLException ex) {
@@ -247,7 +274,25 @@ public void AjouterUser(fos_user u) {
         System.out.println(list);
         return list;
     }
+    public String md5(String md5) {
+   try {
+        java.security.MessageDigest md = java.security.MessageDigest.getInstance("MD5");
+        byte[] array = md.digest(md5.getBytes());
+        StringBuffer sb = new StringBuffer();
+        for (int i = 0; i < array.length; ++i) {
+          sb.append(Integer.toHexString((array[i] & 0xFF) | 0x100).substring(1,3));
+       }
+        return sb.toString();
+    } catch (java.security.NoSuchAlgorithmException e) {
+    }
+    return null;
 }
+
+    public void Login(fos_user fos_user) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+}
+
 
    
    

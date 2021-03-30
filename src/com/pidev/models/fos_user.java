@@ -20,14 +20,23 @@ public class fos_user {
 
     private String password;
     private String roles;
+     private String telephone;
 
     public fos_user() {
+    }
+
+    public fos_user(int aInt, String string, String string0, String string1, String string2, String string3) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    public fos_user(String text, String text0) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
 
     @Override
     public String toString() {
-        return "fos_user{" + "id=" + id + ", username=" + username + ", email=" + email + ", password=" + password + ", roles=" + roles + '}';
+        return "fos_user{" + "id=" + id + ", username=" + username + ", email=" + email + ", password=" + password + ", roles=" + roles +", telephone=" + telephone+ '}';
     }
 
     public int getId() {
@@ -70,6 +79,15 @@ public class fos_user {
         this.roles = roles;
     }
 
+    public String getTelephone() {
+        return telephone;
+    }
+
+    public void setTelephone(String telephone) {
+        this.telephone = telephone;
+    }
+    
+
     public fos_user(String username, String email, String password, String roles) {
         this.username = username;
         this.email = email;
@@ -83,6 +101,14 @@ public class fos_user {
         this.email = email;
         this.password = password;
         this.roles = roles;
+    }
+
+    public fos_user(String username, String email, String password, String roles, String telephone) {
+        this.username = username;
+        this.email = email;
+        this.password = password;
+        this.roles = roles;
+        this.telephone = telephone;
     }
 
     

@@ -5,10 +5,11 @@
  */
 package com.pidev.gui;
 
-import de.jensd.fx.glyphs.octicons.OctIconView;
-import java.awt.event.MouseEvent;
+import com.pidev.models.fos_user;
+import com.pidev.services.ServiceUser;
 import java.io.IOException;
 import java.net.URL;
+import java.sql.SQLException;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -18,22 +19,27 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.PasswordField;
+import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import javax.swing.JOptionPane;
 
 /**
  * FXML Controller class
  *
  * @author infoevo
  */
-public class MenuController implements Initializable {
+public class LoginController implements Initializable {
 
     @FXML
-    private Button utilisateur;
+    private TextField tfusername;
     @FXML
-    private Button evenement;
+    private PasswordField tfpassword;
+    @FXML
+    private Button btnlogin;
+    @FXML
+    private Button btnsignup;
     private Stage primaryStage;
-    @FXML
-    private OctIconView close;
 
     /**
      * Initializes the controller class.
@@ -44,32 +50,21 @@ public class MenuController implements Initializable {
     }    
 
     @FXML
-    private void gestionutilisateur(ActionEvent event) throws IOException {
+    private void login(ActionEvent event) throws SQLException {
+         ServiceUser rt = new ServiceUser();
+       String s=rt.validerLogin(tfusername.getText(), tfpassword.getText());
+        JOptionPane.showMessageDialog(null, "succés");
+    }
+
+    @FXML
+    private void signup(ActionEvent event) throws IOException {
         Stage window = primaryStage;
-        Parent rootRec2 = FXMLLoader.load(getClass().getResource("ajouterutilisateur.fxml"));;
+        Parent rootRec2 = FXMLLoader.load(getClass().getResource("signup.fxml"));;
 //////////////////////////////////////////////////////////////////
         Scene rec2 = new Scene(rootRec2);
         Stage app = (Stage) ((Node) event.getSource()).getScene().getWindow();
         app.setScene(rec2);
         app.show();
-    }
-
-    @FXML
-    private void gestionevenement(ActionEvent event) throws IOException {
-        Stage window = primaryStage;
-        Parent rootRec2 = FXMLLoader.load(getClass().getResource("evenement.fxml"));;
-//////////////////////////////////////////////////////////////////
-        Scene rec2 = new Scene(rootRec2);
-        Stage app = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        app.setScene(rec2);
-        app.show();
-    }
-   
-
-    @FXML
-    private void CLOSE(javafx.scene.input.MouseEvent event) {
-        Stage stage = (Stage)((Node) event.getSource()).getScene().getWindow();
-        stage.close();
     }
     
 }

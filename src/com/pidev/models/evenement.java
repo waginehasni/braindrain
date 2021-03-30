@@ -19,6 +19,8 @@ public class evenement {
     private Date date_debut;
     private Date date_fin;
      private String specialite;
+          private String nom;
+
 
     public evenement() {
     }
@@ -39,6 +41,10 @@ public class evenement {
         this.date_debut = date_debut;
         this.date_fin = date_fin;
         this.specialite = specialite;
+    }
+
+    public evenement(int aInt, int aInt0, String string, Date date, Date date0, String string0, String string1) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     public int getId_evenement() {
@@ -88,6 +94,24 @@ public class evenement {
     public void setSpecialite(String specialite) {
         this.specialite = specialite;
     }
+
+    public String getNom() {
+        return nom;
+    }
+
+    public void setNom(String nom) {
+        this.nom = nom;
+    }
+
+    public evenement(int num_salle, String nom_offre, Date date_debut, Date date_fin, String specialite, String nom) {
+        this.num_salle = num_salle;
+        this.nom_offre = nom_offre;
+        this.date_debut = date_debut;
+        this.date_fin = date_fin;
+        this.specialite = specialite;
+        this.nom = nom;
+    }
+    
 
     @Override
     public String toString() {

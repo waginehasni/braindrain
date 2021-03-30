@@ -42,7 +42,7 @@ public class Service_Evenement {
     
 public void Ajouterevent(evenement e) {
         try {
-            String req = "INSERT INTO evenement (id_evenement,num_salle,nom_offre,date_debut,date_fin,specialite) VALUES (?,?,?,?,?,?)";
+            String req = "INSERT INTO evenement (id_evenement,num_salle,nom_offre,date_debut,date_fin,specialite,nom) VALUES (?,?,?,?,?,?,?)";
 
             PreparedStatement st = cnx.prepareStatement(req);
             st.setInt(1, e.getId_evenement());
@@ -54,6 +54,8 @@ public void Ajouterevent(evenement e) {
             st.setDate(4, e.getDate_debut());
             st.setDate(5, e.getDate_fin());
             st.setString(6, e.getSpecialite());
+            st.setString(7, e.getNom());
+
             st.executeUpdate();
             System.out.println("evenement ajouté !!");
 
@@ -65,7 +67,7 @@ public void Ajouterevent(evenement e) {
     public void ModiferEvenement(int id, evenement e) {
         try {
             System.out.println("-------"+e.getId_evenement());
-            String req = "UPDATE evenement SET id_evenement = ?, num_salle= ?, nom_offre=?, date_debut=?,date_fin=?,specialite=?  " 
+            String req = "UPDATE evenement SET id_evenement = ?, num_salle= ?, nom_offre=?, date_debut=?,date_fin=?,specialite=?,nom=?  " 
                     + " WHERE id_evenement = " + id + ";";
             PreparedStatement st = cnx.prepareStatement(req);
             st.setInt(1, e.getId_evenement());
@@ -74,6 +76,7 @@ public void Ajouterevent(evenement e) {
             st.setDate(4, e.getDate_debut());
             st.setDate(5, e.getDate_fin());
             st.setString(6, e.getSpecialite());
+            st.setString(7, e.getNom());
             st.executeUpdate();
             System.out.println("evenement modilfer !!");
 
@@ -102,7 +105,7 @@ public void Ajouterevent(evenement e) {
   
    public void registerEvenement(evenement e) {
         try {
-            String req = " INSERT INTO evenement (id_evenement,num_salle,nom_offre,date_debut,date_fin,specialite) VALUES (?,?,?,?,?,?)\";\n" +"";
+            String req = " INSERT INTO evenement (id_evenement,num_salle,nom_offre,date_debut,date_fin,specialite,nom) VALUES (?,?,?,?,?,?,?)\";\n" +"";
 
             PreparedStatement st = cnx.prepareStatement(req);
              st.setInt(1, e.getId_evenement());
@@ -111,6 +114,7 @@ public void Ajouterevent(evenement e) {
             st.setDate(4, e.getDate_debut());
             st.setDate(5, e.getDate_fin());
             st.setString(6, e.getSpecialite());
+            st.setString(7, e.getSpecialite());
             st.executeUpdate();
             System.out.println("evenement Ajouté !!");
 
@@ -137,6 +141,7 @@ public void Ajouterevent(evenement e) {
                  a.setDate_fin(rs.getDate(5));
                 
                 a.setSpecialite(rs.getString(6));
+                a.setNom(rs.getString(7));
                 eventList.add(a);
             }
         } catch (SQLException ex) {
@@ -160,7 +165,8 @@ public void Ajouterevent(evenement e) {
                         rs.getDate("date_debut"),
                         rs.getDate("date_fin"),
                   
-                        rs.getString("specialite")
+                        rs.getString("specialite"),
+                         rs.getString("nom")
                 ));
             }
             st.close();
@@ -189,6 +195,8 @@ evenement e = new evenement();
                         e.setDate_fin(rs.getDate("date_fin"));
                      
                         e.setSpecialite(rs.getString("specialite"));
+                        e.setSpecialite(rs.getString("nom"));
+
                                
             }
         } catch (SQLException ex) 
@@ -211,6 +219,7 @@ public List<evenement> trierevenementDateDebut() {
                 a.setDate_debut(rs.getDate(4));
                 a.setDate_fin(rs.getDate(5));
                 a.setSpecialite(rs.getString(6));
+                a.setNom(rs.getString(7));
                 listAbonnementTypeX.add(a);
                 Collections.sort(listAbonnementTypeX,evenementComparatorDateDebut);
             }
